@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyTaskPro - Professional Task Management App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #2196F3;
@@ -19,7 +21,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
         }
@@ -62,9 +64,22 @@
         }
 
         .hero {
-            background: var(--light-bg);
-            padding: 4rem 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 6rem 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,...') center/cover;
+            opacity: 0.1;
         }
 
         .hero h1 {
@@ -94,19 +109,34 @@
         .feature-card {
             background: white;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: var(--primary-color);
             color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             text-decoration: none;
             margin-top: 2rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            font-weight: 500;
         }
 
         .cta-button:hover {
@@ -123,6 +153,28 @@
             background: var(--light-bg);
             padding: 2rem 0;
             text-align: center;
+        }
+
+        .data-usage-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .data-usage-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .data-usage-list i {
+            color: var(--primary-color);
+            font-size: 1.25rem;
         }
     </style>
 </head>
@@ -150,14 +202,17 @@
             <h2>App Features</h2>
             <div class="features">
                 <div class="feature-card">
+                    <i class="fas fa-tasks feature-icon"></i>
                     <h3>Task Management</h3>
                     <p>Organize daily tasks and projects with intuitive interfaces and smart categorization</p>
                 </div>
                 <div class="feature-card">
+                    <i class="fab fa-google feature-icon"></i>
                     <h3>Google Integration</h3>
                     <p>Seamlessly sync your tasks across devices using Google Sign-in</p>
                 </div>
                 <div class="feature-card">
+                    <i class="fas fa-camera feature-icon"></i>
                     <h3>Camera Integration</h3>
                     <p>Capture and attach images to your tasks for better context and documentation</p>
                 </div>
@@ -167,10 +222,19 @@
         <section id="data-usage">
             <h2>Data Usage Transparency</h2>
             <p>MyTaskPro requests access to:</p>
-            <ul>
-                <li>Google Sign-in for secure authentication and task synchronization</li>
-                <li>Camera access for task-related image capture</li>
-                <li>Calendar integration for deadline management</li>
+            <ul class="data-usage-list">
+                <li>
+                    <i class="fab fa-google"></i>
+                    <span>Google Sign-in for secure authentication and task synchronization</span>
+                </li>
+                <li>
+                    <i class="fas fa-camera"></i>
+                    <span>Camera access for task-related image capture</span>
+                </li>
+                <li>
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Calendar integration for deadline management</span>
+                </li>
             </ul>
             <p>All data is handled securely and in accordance with our <a href="privacy.html">Privacy Policy</a>.</p>
         </section>
