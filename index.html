@@ -6,177 +6,8 @@
     <title>MyTaskPro - Professional Task Management App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2196F3;
-            --secondary-color: #1976D2;
-            --text-color: #333;
-            --light-bg: #f5f5f5;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        header {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: opacity 0.3s;
-        }
-
-        nav ul li a:hover {
-            opacity: 0.8;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 6rem 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,...') center/cover;
-            opacity: 0.1;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 20px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 2rem;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .cta-button:hover {
-            background: var(--secondary-color);
-        }
-
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        footer {
-            background: var(--light-bg);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .data-usage-list {
-            list-style: none;
-            padding: 0;
-            margin: 2rem 0;
-        }
-
-        .data-usage-list li {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .data-usage-list i {
-            color: var(--primary-color);
-            font-size: 1.25rem;
-        }
-    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -192,29 +23,112 @@
     </header>
 
     <section class="hero">
-        <h1>Welcome to MyTaskPro</h1>
-        <p>Your comprehensive task management solution for enhanced productivity and organization</p>
-        <a href="https://play.google.com/store/apps/details?id=com.mytaskpro" class="cta-button">Download on Play Store</a>
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Welcome to MyTaskPro</h1>
+            <p>Your comprehensive task management solution for enhanced productivity and organization</p>
+            <div class="hero-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.mytaskpro" class="cta-button">
+                    <i class="fab fa-google-play"></i>
+                    Download on Play Store
+                </a>
+                <a href="#features" class="secondary-button">
+                    <i class="fas fa-info-circle"></i>
+                    Learn More
+                </a>
+            </div>
+        </div>
+        <div class="hero-image" data-aos="fade-left">
+            <img src="./images/photo1.jpg" alt="MyTaskPro App">
+        </div>
     </section>
 
     <main class="container">
-        <section id="features">
-            <h2>App Features</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <i class="fas fa-tasks feature-icon"></i>
-                    <h3>Task Management</h3>
-                    <p>Organize daily tasks and projects with intuitive interfaces and smart categorization</p>
+        <section id="features" class="features-section">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Powerful Features</h2>
+                <p>Everything you need for efficient task management</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-redo feature-icon"></i>
+                    <h3>Recurring Tasks</h3>
+                    <p>Set up repeating tasks with custom schedules</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fab fa-google feature-icon"></i>
-                    <h3>Google Integration</h3>
-                    <p>Seamlessly sync your tasks across devices using Google Sign-in</p>
+                
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-sort-amount-down feature-icon"></i>
+                    <h3>Smart Sorting</h3>
+                    <p>Sort by completion, due date, title, or priority</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-camera feature-icon"></i>
-                    <h3>Camera Integration</h3>
-                    <p>Capture and attach images to your tasks for better context and documentation</p>
+
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Detailed task summary graphs and analytics</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-calendar-alt feature-icon"></i>
+                    <h3>Upcoming Tasks</h3>
+                    <p>Clear overview of your scheduled tasks</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-file-alt feature-icon"></i>
+                    <h3>Built-in Notes</h3>
+                    <p>Take notes, scan documents, add images and PDFs</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-trophy feature-icon"></i>
+                    <h3>Achievement Badges</h3>
+                    <p>Earn badges as you complete tasks</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-robot feature-icon"></i>
+                    <h3>AI Recommendations</h3>
+                    <p>Smart suggestions based on your completion history</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-moon feature-icon"></i>
+                    <h3>Dark/Light Mode</h3>
+                    <p>Choose your preferred theme</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="app-gallery">
+            <div class="section-title">
+                <h2>App Screenshots</h2>
+                <p>Take a look at MyTaskPro in action</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="./images/photo1.jpg" alt="MyTaskPro Screenshot 1" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/photo2.jpg" alt="MyTaskPro Screenshot 2" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/photo3.jpg" alt="MyTaskPro Screenshot 3" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/photo4.jpg" alt="MyTaskPro Screenshot 4" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/photo5.jpg" alt="MyTaskPro Screenshot 5" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/photo6.jpg" alt="MyTaskPro Screenshot 6" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/photo7.jpg" alt="MyTaskPro Screenshot 7" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/photo8.jpg" alt="MyTaskPro Screenshot 8" onclick="openModal(this.src)">
                 </div>
             </div>
         </section>
@@ -244,5 +158,17 @@
         <p>© 2024 MyTaskPro. All rights reserved.</p>
         <p>Contact: dordunuchristian51@gmail.com</p>
     </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content">
+        <div class="modal-nav">
+            <button onclick="changeImage(-1)">&#10094;</button>
+            <button onclick="changeImage(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
