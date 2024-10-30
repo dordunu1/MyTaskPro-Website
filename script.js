@@ -157,20 +157,19 @@ function handleSwipe() {
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileNav = document.querySelector('.mobile-nav');
+const navLinks = document.querySelector('.nav-links');
 
 mobileMenuBtn.addEventListener('click', () => {
-    mobileNav.classList.toggle('active');
-    // Optional: Toggle icon between bars and X
+    navLinks.classList.toggle('active');
+    // Toggle icon between bars and X
     mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
     mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        mobileNav.classList.remove('active');
-        // Reset icon to bars
+    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        navLinks.classList.remove('active');
         mobileMenuBtn.querySelector('i').classList.add('fa-bars');
         mobileMenuBtn.querySelector('i').classList.remove('fa-times');
     }
@@ -179,8 +178,7 @@ document.addEventListener('click', (e) => {
 // Close mobile menu when clicking a link
 document.querySelectorAll('.mobile-nav a').forEach(link => {
     link.addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-        // Reset icon to bars
+        navLinks.classList.remove('active');
         mobileMenuBtn.querySelector('i').classList.add('fa-bars');
         mobileMenuBtn.querySelector('i').classList.remove('fa-times');
     });

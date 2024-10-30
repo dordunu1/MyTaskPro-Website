@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - MyTaskPro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reusing styles from index.html */
         :root {
-            --primary-color: #2196F3;
-            --secondary-color: #1976D2;
+            --primary-color: #E57373;
+            --secondary-color: #C62828;
+            --bg-color: #FFF8E1;
+            --card-bg: #FFECB3;
             --text-color: #333;
-            --light-bg: #f5f5f5;
         }
 
         * {
@@ -20,9 +22,10 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
+            background-color: var(--bg-color);
         }
 
         header {
@@ -39,6 +42,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 70px;
         }
 
         .logo {
@@ -48,56 +52,123 @@
             text-decoration: none;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
 
-        nav ul li a {
+        .nav-links a {
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
         }
 
-        nav ul li a:hover {
-            opacity: 0.8;
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
         }
 
         .legal-content {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2rem auto;
             padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .legal-content h1 {
-            margin-bottom: 2rem;
             color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
         }
 
         .legal-content h2 {
-            margin: 1.5rem 0 1rem;
             color: var(--secondary-color);
-        }
-
-        .legal-content p, .legal-content ul {
-            margin-bottom: 1rem;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.8rem;
         }
 
         .legal-content ol {
-            padding-left: 2rem;
-            margin-bottom: 1.5rem;
+            list-style-position: inside;
+            padding-left: 0;
         }
 
         .legal-content li {
-            margin-bottom: 1rem;
+            background: white;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         footer {
-            background: var(--light-bg);
+            background: var(--primary-color);
+            color: white;
             padding: 2rem 0;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 1rem;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .legal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .legal-content h1 {
+                font-size: 2rem;
+            }
+
+            .legal-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .legal-content li {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -105,12 +176,14 @@
     <header>
         <nav>
             <a href="index.html" class="logo">MyTaskPro</a>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="index.html#features">Features</a></li>
                 <li><a href="privacy.html">Privacy Policy</a></li>
                 <li><a href="terms.html">Terms of Service</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
@@ -176,7 +249,28 @@
 
     <footer>
         <p>© 2024 MyTaskPro. All rights reserved.</p>
-        <p>Contact: dordunuchristian51@gmail.com</p>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle icon between bars and X
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            }
+        });
+    </script>
 </body>
 </html>
