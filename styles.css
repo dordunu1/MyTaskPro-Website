@@ -189,12 +189,10 @@ nav {
 
 .gallery-grid {
     display: grid;
+    gap: 1.5rem;
+    padding: 1rem;
+    /* Default (desktop) layout */
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
 }
 
 .gallery-item {
@@ -687,5 +685,25 @@ html, body {
 
     .mobile-nav li:last-child a {
         border-bottom: none;
+    }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Changes to 2 columns */
+        gap: 1rem; /* Slightly smaller gap on mobile */
+    }
+
+    .gallery-item img {
+        aspect-ratio: 9/16; /* Optional: adjust aspect ratio for mobile if needed */
+        object-fit: cover;
+    }
+}
+
+/* Additional responsive adjustments */
+@media screen and (max-width: 480px) {
+    .gallery-grid {
+        padding: 0.5rem; /* Even smaller padding on very small screens */
     }
 }
