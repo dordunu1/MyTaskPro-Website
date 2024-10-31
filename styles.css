@@ -156,7 +156,7 @@ nav {
 .features-section {
     width: 100%;
     padding: 4rem 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow: hidden; /* Changed from overflow-x to just overflow */
 }
 
 /* Features Grid */
@@ -168,7 +168,9 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    overflow: visible; /* Add this to ensure cards can overflow for hover effect */
 }
+
 
 .feature-card {
     background: #fff;
@@ -180,6 +182,13 @@ nav {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    overflow: hidden; /* Add this to contain any overflow */
 }
 
 .feature-card:hover {
@@ -196,8 +205,9 @@ nav {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-        width: calc(100% - 2rem); /* Account for padding */
-        padding: 0 1rem;
+        padding: 0 20px;
+        width: 100%;
+        max-width: 600px;
     }
 }
 
@@ -209,21 +219,21 @@ nav {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
-        width: 90%; /* Reduce width to ensure content is visible */
-        padding: 0;
-        margin: 0 auto;
+        padding: 0 15px;
+        width: 100%;
+        max-width: 500px;
     }
 
     .feature-card {
         padding: 1.5rem;
-        width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     .features-grid {
-        width: 95%; /* Slightly wider on smaller screens */
+        padding: 0 10px;
         gap: 12px;
+        max-width: 400px;
     }
 
     .feature-card {
@@ -478,10 +488,33 @@ nav {
     color: white;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Changed from space-between to center */
     align-items: center;
+    text-align: center; /* Added for extra centering support */
 }
 
 .copyright-text {
     font-size: 0.9rem;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+    .features-container {
+        max-width: 600px;
+    }
+    
+    .copyright {
+        padding: 1rem; /* Reduced padding on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .features-container {
+        padding: 0 0.5rem;
+    }
 }
